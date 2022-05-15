@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  app-test-runner:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - type: volume
+        source: s3data
+        target: /data
+    command: py.test tests/test_app.py
+    tty: true
+    stdin_open: true
+    environment:
+        - STORAGE_ROOT=/data
+volumes:
+  s3data:
