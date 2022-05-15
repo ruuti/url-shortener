@@ -9,7 +9,7 @@
 This system is separated into three different Lambda functions:
 * [HTTP POST /](#create-a-short-link): accepts POST request with JSON data containing a link to be shortneted
 * [HTTP GET /{id}](#get-full-link-by-id): accepts GET request with an id. It returns an object containing a full link to orignial destination.
-* Count (not implemented): listens SQS and inserts counts to db
+* [Count (not implemented)](/docs/architecture-decisions/001-visit-count.md): listens SQS and inserts counts to db
 
 ![Architecture](architecture.png?raw=true "System overview")
 
