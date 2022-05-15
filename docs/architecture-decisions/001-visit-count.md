@@ -1,4 +1,4 @@
-#ADR001: Visit count
+# ADR001: Visit count
 
 ## Decision
 The system should be able to count the number of time each unique link was visited. To support the low response time, SQS has been decided to be implemented.
