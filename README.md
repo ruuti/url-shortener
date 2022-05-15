@@ -13,8 +13,48 @@ This system is separated into three different Lambda functions:
 
 ![Architecture](architecture.png?raw=true "System overview")
 
+## Usage
+
+### Create a short link
+
+To start env see [Development](#Development).
+
+```
+curl -X POST \
+-H 'Content-Type: application/json' \
+-d '{"url":"https://url.com"}' \
+http://localhost:8000/
+```
+
+Example response:
+
+```
+{
+  "id": "7c2a990e",
+  "url": "https://url.com",
+  "short_link": "https://localhost:8000/7c2a990e"
+}
+```
+
+### Get full link by id
+
+To start env see [Development](#Development).
+
+```
+curl -X GET http://localhost:8000/7c2a990e
+```
+
+Example response:
+```
+{
+  "id": "7c2a990e",
+  "url": "https://url.com",
+  "short_link": "https://localhost:8000/7c2a990e"
+}
+```
+
 ## Development
 
-To spin up local development enviroment run: `make dev-run`.
+To spin up a local development enviroment run: `make dev-run`.
 
 To run tests execute: `make test`
