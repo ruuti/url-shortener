@@ -14,5 +14,6 @@ services:
     stdin_open: true
     environment:
         - STORAGE_ROOT=/data
+        - BASE_URL=https://localhost:8000
 volumes:
   s3data:

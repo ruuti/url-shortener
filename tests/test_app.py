@@ -1,6 +1,10 @@
 import json
+import os
 from chalice.test import Client
+
 from app import app
+
+BASE_URL = os.environ['BASE_URL']
 
 
 def test_create_link():
@@ -11,6 +15,9 @@ def test_create_link():
             headers={'Content-Type': 'application/json'},
             body=json.dumps({'url': url})
         )
+        assert response.json_body['url'] == url
+        assert response.json_body['short_link'] == "%s/%s" % (
+            BASE_URL, response.json_body['id'])
         assert response.status_code == 200
 
 
