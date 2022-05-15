@@ -2,6 +2,7 @@ import os
 import uuid
 from pydantic import BaseModel, HttpUrl, Field
 
+from lib import cache
 from lib import storage
 
 
@@ -27,7 +28,13 @@ class Url(BaseModel):
         self.short_link = link
 
     def get(id):
+        cached = cache.get_by_key(id)
+        if cached:
+            return Url(id=id, **cached)
+
         file = storage.get(id)
+        if file:
+            cache.set_entry(id, file)
         return Url(id=id, **file)
 
     def save(self):

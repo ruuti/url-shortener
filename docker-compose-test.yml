@@ -15,5 +15,10 @@ services:
     environment:
         - STORAGE_ROOT=/data
         - BASE_URL=https://localhost:8000
+        - CACHE_HOST=memcached
+    depends_on:
+      - memcached
+  memcached:
+    image: memcached
 volumes:
   s3data:
