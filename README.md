@@ -2,7 +2,7 @@
 
 ## Introduction
 
-"url-shortener" is a URL shortener system that generates a shorter version of a user inputted link.
+"url-shortener" is a URL shortener system that generates a shorter version of a user inputted link. ADRs can be found [here](/docs/architecture-decisions).
 
 ## Architecture
 
